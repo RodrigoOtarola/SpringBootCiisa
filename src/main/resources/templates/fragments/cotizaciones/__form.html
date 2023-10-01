@@ -1,0 +1,129 @@
+<div th:fragment="crearCotizacion" class="content-wrapper">
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-12">
+					<h1>Crear cotización</h1>
+				</div>
+				<!-- <div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Buttons</li>
+					</ol>
+				</div>-->
+			</div>
+	</section>
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-9 col-9">
+					<div class="card card-info">
+						<div class="card-header">
+							<h3 class="card-title">Formulario</h3>
+						</div>
+						<form class="form-horizontal">
+							<div class="card-body">
+								<div class="form-group row">
+									<label for="rut" class="col-sm-1 col-form-label">Rut</label>
+									<div class="col-sm-4">
+										<input type="rut" class="form-control" id="rut"
+											placeholder="Buscar datos con rut">
+									</div>
+								</div>
+
+								<!-- Mostramos información buscada en la base de datos-->
+								<div class="form-group row">
+									<label for="nombre" class="col-sm-1 col-form-label">Nombre</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="nombre" placeholder="">
+									</div>
+									<label for="ap_paterno" class="col-sm-1 col-form-label">Apellido</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="ap_paterno" placeholder="">
+									</div>
+									<label for="ap_materno" class="col-sm-1 col-form-label">Materno</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="ap_materno" placeholder="">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="email" class="col-sm-1 col-form-label">Email</label>
+									<div class="col-sm-4">
+										<input type="email" class="form-control" id="email" placeholder="">
+									</div>
+									<label for="direccion" class="col-sm-2 offset-sm-1 col-form-label">Dirección</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="direccion" placeholder="">
+									</div>
+								</div>
+
+								<!-- Detalle de cotización -->
+								<div class="card row">
+									<div class="card-header">
+										<h2 class="card-title">Agregar departamento</h2>
+										<button class="btn btn-sm btn-primary float-right"
+											id="agregarDepto">Agregar</button>
+									</div>
+
+									<div class="card-body" id="formAgregar" style="display: none;">
+										<h3>Hola</h3>
+									</div>
+
+									<script>
+
+									</script>
+
+									<div class="card-body">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th style="width: 10px">Nro.</th>
+													<th>Proyecto</th>
+													<th>Modelo</th>
+													<th>Valor</th>
+													<th>U.F</th>
+													<th>Pie</th>
+													<th>Total</TH>
+													<th>Modificar</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Update software</td>
+													<td>aaaa</td>
+													<td>bbbb</td>
+													<td>ccc</td>
+													<td>10</td>
+													<td>ddddd</td>
+													<td><button class="btn btn-xs btn-danger"><i
+																class="far fa-trash-alt"></i></button></td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Update software</td>
+													<td>aaaa</td>
+													<td>bbbb</td>
+													<td>ccc</td>
+													<td>10</td>
+													<td>ddddd</td>
+													<td><button class="btn btn-xs btn-danger"><i
+																class="far fa-trash-alt"></i></button></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer">
+								<a href="/cotizaciones/listar" class="btn btn-warning">Volver</a>
+								<button type="submit" class="btn btn-info">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

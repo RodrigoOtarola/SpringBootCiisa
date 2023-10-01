@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Crear Comuna</title>
+
+	<!-- Importamos estilos de adminLte -->
+	<div th:replace="./layouts/styles :: style"></div>
+	
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Importamos navbar -->
+		<nav th:replace="./layouts/navbar :: navbar"></nav>
+
+		<!-- Importamos sidebar -->
+		<aside th:replace="./layouts/sidebar :: sidebar"></aside>
+
+		<!-- importamos el formulario de creación -->
+		<div th:replace="./fragments/comunas/__form :: crearComuna">
+		</div>
+
+		<!-- footer-->
+		<footer th:replace="./layouts/footer :: footer"></footer>
+
+		<!-- Importamos Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+		</aside>
+	</div>
+
+
+	<!-- Importamos scripts genericos-->
+	<div th:replace="./layouts/scripts :: scripts"></div>
+
+
+</body>
+
+</html>

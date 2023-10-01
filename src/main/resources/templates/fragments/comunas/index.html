@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Comunas</title>
+
+	<!-- Importamos estilos de adminLte -->
+	<div th:replace="./layouts/styles :: style"></div>
+
+	<!-- Importamos estilos de DataTable-->
+	<div th:replace="./layouts/DataTables/styles :: styles"></div>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Importamos navbar -->
+		<nav th:replace="./layouts/navbar :: navbar"></nav>
+
+		<!-- Importamos sidebar -->
+		<aside th:replace="./layouts/sidebar :: sidebar"></aside>
+
+		<!-- importamos Tabla de listado de comunas habilitadas -->
+		<div th:replace="./fragments/comunas/tablaListarComunas :: tablaListarComunas">
+		</div>
+
+		<!-- footer-->
+		<footer th:replace="./layouts/footer :: footer"></footer>
+
+		<!-- Importamos Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+	</div>
+
+
+	<!-- Importamos scripts genericos-->
+	<div th:replace="./layouts/scripts :: scripts"></div>
+
+	<!-- Importamos script de DataTables-->
+	<div th:replace="./layouts/DataTables/scripts :: scripts"></div>
+
+	<script>
+		$(function () {
+			$("#example1").DataTable({
+				"responsive": true, "lengthChange": false, "autoWidth": false,
+				"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+			}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+			$('#example2').DataTable({
+				"paging": true,
+				"lengthChange": false,
+				"searching": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false,
+				"responsive": true,
+			});
+		});
+	</script>
+</body>
+
+</html>

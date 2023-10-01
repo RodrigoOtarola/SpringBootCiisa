@@ -1,0 +1,140 @@
+<!-- Main Sidebar Container -->
+<aside th:fragment="sidebar" class="main-sidebar sidebar-dark-primary elevation-4">
+	<div class="sidebar">
+		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="image">
+				<img th:src="@{/img/linux.png}" class="img-circle elevation-2" alt="User Image">
+			</div>
+			<div class="info">
+				<a href="#" class="d-block">Rodrigo Otárola</a>
+			</div>
+		</div>
+
+		<nav class="mt-2">
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+				<!--Menú Dashboard-->
+				<li class="nav-item">
+					<a href="/" class="nav-link">
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Dashboard
+						</p>
+					</a>
+				</li>
+
+				<!--Menú desplegable Cotizaciones -->
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-money-check"></i>
+						<p>
+							Cotizaciones
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="/cotizaciones/listar" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Listar cotizaciones</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/cotizaciones/crear" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear Cotización</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!--Menú desplegable Proyectos-->
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-city"></i>
+						<p>
+							Proyectos
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="./index.html" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v1</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!--Menú desplegable Departamentos-->
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-building"></i>
+						<p>
+							Departamentos
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="./index.html" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v1</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!--Menú desplegable Comunas-->
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon far fa-flag"></i>
+						<p>
+							Comunas
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="/comunas/listar" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Listar comunas</p>
+							</a>
+						</li>
+					</ul>
+
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="/comunas/crear" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear comuna</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!--Menú desplegable -->
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-users"></i>
+						<p>
+							Usuarios
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="./index.html" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v1</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+
+			</ul>
+		</nav>
+	</div>
+</aside>
