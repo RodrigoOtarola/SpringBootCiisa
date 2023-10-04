@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class CotizacionControler {
+public class CotizacionController {
 	
 	/*Método que muestra vista de cotizaciones creadas, archivadas o eliminadas. */	
 	@GetMapping("/cotizaciones/listar")

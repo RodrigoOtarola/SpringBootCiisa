@@ -59,11 +59,18 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="./index.html" class="nav-link">
+							<a href="/proyectos/listar" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v1</p>
+								<p>Listar Proyectos</p>
 							</a>
 						</li>
+						<li class="nav-item">
+							<a th:href="@{/proyectos/crear}" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear Proyecto</p>
+							</a>
+						</li>
+
 					</ul>
 				</li>
 
@@ -72,15 +79,21 @@
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-building"></i>
 						<p>
-							Departamentos
+							Modelos
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="./index.html" class="nav-link">
+							<a href="/modelos/listar" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v1</p>
+								<p>Listar Modelos</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/modelos/crear" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear Modelo</p>
 							</a>
 						</li>
 					</ul>
