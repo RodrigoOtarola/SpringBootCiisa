@@ -21,7 +21,7 @@
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Listado</h3>
-							<a href="/comunas/crear" class="btn btn-primary float-right">Crear comuna</a>
+							<a th:href="@{/comunas/crear}" class="btn btn-primary float-right">Crear comuna</a>
 						</div>
 						<div class="card-body">
 							<table id="example1" class="table table-bordered table-striped">
@@ -40,11 +40,19 @@
 											Explorer 4.0
 										</td>
 										<td>Win 95+</td>
-										<td class="text-center">
-											<div div="btn-group">
-												<a class="btn btn-info"><i class="far fa-eye"></i></a>
-												<a class="btn btn-secondary"><i class="far fa-edit"></i></a>
-												<button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+										<td>
+											<div class="row">
+												<div class="col col-sm4">
+													<a class="btn btn-block btn-info"><i class="far fa-eye"></i></a>
+												</div>
+												<div class="col col-sm4">
+													<a class="btn btn-block btn-secondary"><i
+															class="far fa-edit"></i></a>
+												</div>
+												<div class="col col-sm4">
+													<button class="btn btn-block btn-danger"><i
+															class="far fa-trash-alt"></i></button>
+												</div>
 											</div>
 										</td>
 									</tr>

@@ -2,17 +2,19 @@ package com.example.demo.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/proyectos")
 public class ProyectoController {
 	
-	@GetMapping("/proyectos/listar")
+	@GetMapping("/listar")
 	public String proyectos() {
 		
 		return "/fragments/proyectos/index";
 	}
 	
-	@GetMapping("/proyectos/crear")
+	@GetMapping("/crear")
 	public String crearProyecto() {
 		
 		return "/fragments/proyectos/crear";
