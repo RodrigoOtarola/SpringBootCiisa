@@ -1,0 +1,87 @@
+<div th:fragment="crearUsuario" class="content-wrapper">
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-12">
+					<h1>Crear usuario</h1>
+				</div>
+				<!-- <div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active">Buttons</li>
+					</ol>
+				</div>-->
+			</div>
+	</section>
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-9 col-9">
+					<div class="card card-info">
+						<div class="card-header">
+							<h3 class="card-title">Formulario</h3>
+						</div>
+						<form class="form-horizontal">
+							<div class="card-body">
+								<div class="form-group row">
+									<label for="rut" class="col-sm-2 col-form-label">RUT</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="rut"
+											placeholder="RUT sin puntos ni guión">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="nombre" placeholder="Nombre">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="ap_paterno" class="col-sm-2 col-form-label">A Paterno</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="ap_paterno"
+											placeholder="Apellido Paterno">
+									</div>
+
+									<label for="ap_materno" class="col-sm-2 col-form-label">A Materno</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="ap_materno"
+											placeholder="Apellido Materno">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="email" class="col-sm-2 col-form-label">E-mail</label>
+									<div class="col-sm-4">
+										<input type="email" class="form-control" id="email"
+											placeholder="Correo Electrónico">
+									</div>
+
+									<label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="direccion"
+											placeholder="Domicilio particular">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="perfil" class="col-sm-2 col-form-label">Perfil</label>
+									<div class="col-sm-6">										
+										<div class="icheck-primary d-inline" th:each="rol:${roles}">
+											<input type="checkbox" th:id="'checkboxPrimary' +${rol.id}" th:value="${rol.id}">
+											<label th:for="'checkboxPrimary' +${rol.id}" th:text="${rol.nombre}">>
+											</label>
+										</div>																			
+									</div>
+								</div>
+							</div>
+							<div class="card-footer">
+								<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
+								<button type="submit" class="btn btn-info">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

@@ -47,39 +47,51 @@
 							<div class="card">
 								<div class="card-header row">
 									<h3 class="card-title col-sm-4">Selecciona para mostrar: </h3>
-									<div class="col-sm-8">
-										<button class="btn btn-sm btn-success" id="vigentes">Vigentes</button>
-										<button class="btn btn-sm btn-warning" id="archivadas">Archivadas</button>
-										<button class="btn btn-sm btn-secondary" id="eliminadas">Eliminadas</button>
-										<button class="btn btn-sm btn-danger" id="ocultar">Ocultar</button>
+									<div class="col col-sm2">
+										<button class="btn btn-sm btn-success btn-block" id="vigentes">Vigentes</button>
+
+									</div>
+									<div class="col col-sm2">
+										<button class="btn btn-sm btn-warning btn-block"
+											id="archivadas">Archivadas</button>
+									</div>
+									<div class="col col-sm2">
+										<button class="btn btn-sm btn-secondary btn-block"
+											id="eliminadas">Eliminadas</button>
+									</div>
+
+									<div class="col col-sm2">
+										<button class="btn btn-sm btn-danger btn-block" id="ocultar">Ocultar</button>
 									</div>
 								</div>
-								<div class="card-body" id="mostrarVigentes" style="display: none;">
-									<h2>Holi desde vigentes</h2>
-								</div>
+							</div>
+							<div th:replace="/fragments/cotizaciones/TablasEstados/activas :: CotizacionesActivas">
+							</div>
 
-								<div class="card-body" id="mostrarArchivadas" style="display: none;">
-									<h2>Holi desde archivadas</h2>
-								</div>
+							<div
+								th:replace="/fragments/cotizaciones/TablasEstados/archivadas :: CotizacionesArchivadas">
+							</div>
 
-								<div class="card-body" id="mostrarEliminadas" style="display: none;">
-									<h2>Holi desde eliminadas</h2>
-								</div>
+
+							<div
+								th:replace="/fragments/cotizaciones/TablasEstados/eliminadas :: CotizacionesEliminadas">
 							</div>
 						</div>
 					</div>
+
 				</div>
-			</section>
 		</div>
+		</section>
+	</div>
 
 
-		<!-- footer-->
-		<footer th:replace="./layouts/footer :: footer"></footer>
+	<!-- footer-->
+	<footer th:replace="./layouts/footer :: footer"></footer>
 
-		<!-- Importamos Sidebar -->
-		<aside class="control-sidebar control-sidebar-dark">
+	<!-- Importamos Sidebar -->
+	<aside class="control-sidebar control-sidebar-dark">
 
-		</aside>
+	</aside>
 	</div>
 
 

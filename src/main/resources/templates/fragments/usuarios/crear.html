@@ -4,14 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Crear Proyectos</title>
+	<title>Crear Usuario</title>
 
-	<!-- Importamos estilos de adminLte-->
+	<!-- Importamos estilos de adminLte -->
 	<div th:replace="./layouts/styles :: style"></div>
-
-	<!-- Select2 -->
-	<link rel="stylesheet" th:href="@{/plugins/select2/css/select2.min.css}">
-	<link rel="stylesheet" th:href="@{/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
 
 </head>
 
@@ -25,7 +21,7 @@
 		<aside th:replace="./layouts/sidebar :: sidebar"></aside>
 
 		<!-- importamos el formulario de creación -->
-		<div th:replace="./fragments/proyectos/__form :: crearProyecto">
+		<div th:replace="./fragments/usuarios/__form :: crearUsuario">
 		</div>
 
 		<!-- footer-->
@@ -33,7 +29,6 @@
 
 		<!-- Importamos Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
-
 		</aside>
 	</div>
 
@@ -41,20 +36,6 @@
 	<!-- Importamos scripts genericos-->
 	<div th:replace="./layouts/scripts :: scripts"></div>
 
-	<!-- Importamos Select2-->
-	<script th:src="@{/plugins/select2/js/select2.full.min.js}"></script>
-
-	<script>
-		$(function () {
-			//Initialize Select2 Elements
-			$('.select2').select2()
-
-			//Initialize Select2 Elements
-			$('.select2bs4').select2({
-				theme: 'bootstrap4'
-			})
-		})
-	</script>
 
 </body>
 

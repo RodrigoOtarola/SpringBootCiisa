@@ -15,7 +15,7 @@
 
 				<!--Menú Dashboard-->
 				<li class="nav-item">
-					<a href="/" class="nav-link">
+					<a th:href="@{/}" th:class="'nav-link '+${titulo == 'Dashboard' ? 'active' : ''}" >
 						<i class="nav-icon fas fa-tachometer-alt"></i>
 						<p>
 							Dashboard
@@ -24,8 +24,8 @@
 				</li>
 
 				<!--Menú desplegable Cotizaciones -->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
+				<li th:class="'nav-item ' +${titulo  == 'Cotizaciones'  ? 'menu-open' : ''}">
+					<a href="#" th:class="'nav-link ' +${titulo  == 'Cotizaciones'  ? 'active' : ''}">
 						<i class="nav-icon fas fa-money-check"></i>
 						<p>
 							Cotizaciones
@@ -34,13 +34,13 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="/cotizaciones/listar" class="nav-link">
+							<a th:href="@{/cotizaciones/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Cotizaciones'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar cotizaciones</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/cotizaciones/crear" class="nav-link">
+							<a th:href="@{/cotizaciones/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Cotizaciones'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Cotización</p>
 							</a>
@@ -49,8 +49,8 @@
 				</li>
 
 				<!--Menú desplegable Proyectos-->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
+				<li th:class="'nav-item ' +${titulo  == 'Proyectos'  ? 'menu-open' : ''}">
+					<a href="#" th:class="'nav-link ' +${titulo  == 'Proyectos'  ? 'active' : ''}">
 						<i class="nav-icon fas fa-city"></i>
 						<p>
 							Proyectos
@@ -59,13 +59,13 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="/proyectos/listar" class="nav-link">
+							<a th:href="@{/proyectos/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Proyectos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar Proyectos</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a th:href="@{/proyectos/crear}" class="nav-link">
+							<a th:href="@{/proyectos/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Proyectos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Proyecto</p>
 							</a>
@@ -75,8 +75,8 @@
 				</li>
 
 				<!--Menú desplegable Departamentos-->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
+				<li th:class="'nav-item ' +${titulo  == 'Modelos'  ? 'menu-open' : ''}">
+					<a href="#" th:class="'nav-link ' +${titulo  == 'Modelos'  ? 'active' : ''}">
 						<i class="nav-icon fas fa-building"></i>
 						<p>
 							Modelos
@@ -85,13 +85,13 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="/modelos/listar" class="nav-link">
+							<a th:href="@{/modelos/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Modelos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar Modelos</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/modelos/crear" class="nav-link">
+							<a th:href="@{/modelos/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Modelos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Modelo</p>
 							</a>
@@ -100,8 +100,8 @@
 				</li>
 
 				<!--Menú desplegable Comunas-->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
+				<li th:class="'nav-item ' +${titulo  == 'Comunas'  ? 'menu-open' : ''}">
+					<a href="#" th:class="'nav-link ' +${titulo  == 'Comunas'  ? 'active' : ''}">
 						<i class="nav-icon far fa-flag"></i>
 						<p>
 							Comunas
@@ -110,7 +110,7 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/comunas/listar}" class="nav-link">
+							<a th:href="@{/comunas/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Comunas'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar comunas</p>
 							</a>
@@ -119,7 +119,7 @@
 
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/comunas/crear}" class="nav-link">
+							<a th:href="@{/comunas/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Comunas'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear comuna</p>
 							</a>
@@ -128,8 +128,8 @@
 				</li>
 
 				<!--Menú desplegable -->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
+				<li th:class="'nav-item ' +${titulo  == 'Usuarios'  ? 'menu-open' : ''}">
+					<a href="#" th:class="'nav-link ' +${titulo  == 'Usuarios'  ? 'active' : ''}">
 						<i class="nav-icon fas fa-users"></i>
 						<p>
 							Usuarios
@@ -138,15 +138,19 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="./index.html" class="nav-link">
+							<a th:href="@{/usuarios/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Usuarios'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v1</p>
+								<p>Listar Usuarios</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a th:href="@{/usuarios/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Usuarios'  ? 'active' : ''}">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear Usuarios</p>
 							</a>
 						</li>
 					</ul>
 				</li>
-
-
 			</ul>
 		</nav>
 	</div>

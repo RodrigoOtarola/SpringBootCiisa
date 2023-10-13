@@ -21,7 +21,7 @@
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Listado</h3>
-							<a href="/proyectos/crear" class="btn btn-primary float-right">Crear Proyecto</a>
+							<a th:href="@{/proyectos/crear}" class="btn btn-primary float-right">Crear Proyecto</a>
 						</div>
 						<div class="card-body">
 							<table id="example1" class="table table-bordered table-striped">
@@ -40,22 +40,24 @@
 											Explorer 4.0
 										</td>
 										<td>Win 95+</td>
-										<td class="text-center">
-											<div div="btn-group">
-												<a class="btn btn-info"><i class="far fa-eye"></i></a>
-												<a class="btn btn-secondary"><i class="far fa-edit"></i></a>
-												<button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+										<td>
+											<div class="row">
+												<div class="col col-sm4">
+													<a class="btn btn-block btn-xs btn-info"><i
+															class="far fa-eye"></i></a>
+												</div>
+												<div class="col col-sm4">
+													<a class="btn btn-block btn-xs btn-secondary"><i
+															class="far fa-edit"></i></a>
+												</div>
+												<div class="col col-sm4">
+													<button class="btn btn-block btn-xs btn-danger"><i
+															class="far fa-trash-alt"></i></button>
+												</div>
 											</div>
 										</td>
 									</tr>
-								<tfoot>
-									<tr>
-										<th>Rendering engine</th>
-										<th>Browser</th>
-										<th>Platform(s)</th>
-										<th>Engine version</th>
-									</tr>
-								</tfoot>
+								</tbody>
 							</table>
 						</div>
 					</div>

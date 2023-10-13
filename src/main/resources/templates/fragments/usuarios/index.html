@@ -4,14 +4,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Crear Proyectos</title>
+	<title>Usuarios</title>
 
 	<!-- Importamos estilos de adminLte-->
 	<div th:replace="./layouts/styles :: style"></div>
-
-	<!-- Select2 -->
-	<link rel="stylesheet" th:href="@{/plugins/select2/css/select2.min.css}">
-	<link rel="stylesheet" th:href="@{/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
+	
+	<!-- Importamos estilos de DataTable-->
+	<div th:replace="./layouts/DataTables/styles :: styles"></div>
 
 </head>
 
@@ -24,8 +23,8 @@
 		<!-- Importamos sidebar -->
 		<aside th:replace="./layouts/sidebar :: sidebar"></aside>
 
-		<!-- importamos el formulario de creación -->
-		<div th:replace="./fragments/proyectos/__form :: crearProyecto">
+		<!-- importamos la tabla dinamica  -->
+		<div th:replace="./fragments/usuarios/listarUsuarios :: tablaListarUsuarios">
 		</div>
 
 		<!-- footer-->
@@ -40,21 +39,28 @@
 
 	<!-- Importamos scripts genericos-->
 	<div th:replace="./layouts/scripts :: scripts"></div>
-
-	<!-- Importamos Select2-->
-	<script th:src="@{/plugins/select2/js/select2.full.min.js}"></script>
+	
+	<!-- Importamos script de DataTables-->
+	<div th:replace="./layouts/DataTables/scripts :: scripts"></div>
 
 	<script>
 		$(function () {
-			//Initialize Select2 Elements
-			$('.select2').select2()
-
-			//Initialize Select2 Elements
-			$('.select2bs4').select2({
-				theme: 'bootstrap4'
-			})
-		})
+			$("#example1").DataTable({
+				"responsive": true, "lengthChange": false, "autoWidth": false,
+				"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+			}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+			$('#example2').DataTable({
+				"paging": true,
+				"lengthChange": false,
+				"searching": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false,
+				"responsive": true,
+			});
+		});
 	</script>
+
 
 </body>
 

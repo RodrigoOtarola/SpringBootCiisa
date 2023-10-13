@@ -59,23 +59,24 @@
 								</div>
 
 								<!-- Detalle de cotización -->
-								<div class="card row">
+								
+								<div class="card col-12 col-sm-12">
 									<div class="card-header">
 										<h2 class="card-title">Agregar departamento</h2>
-										<button class="btn btn-sm btn-primary float-right"
-											id="agregarDepto">Agregar</button>
+										<button type="button" class="btn btn-sm btn-primary float-right"
+											data-toggle="modal" data-target="#staticBackdrop">Agregar</button>
 									</div>
 
-									<div class="card-body" id="formAgregar" style="display: none;">
+									<!--div><div id="formAgregar" style="display: none;">
 										<h3>Hola</h3>
-									</div>
+									</div>-->
 
 									<script>
 
 									</script>
 
 									<div class="card-body">
-										<table class="table table-bordered">
+										<table id="example2" class="table table-bordered table-hover">
 											<thead>
 												<tr>
 													<th style="width: 10px">Nro.</th>
@@ -97,8 +98,18 @@
 													<td>ccc</td>
 													<td>10</td>
 													<td>ddddd</td>
-													<td><button class="btn btn-xs btn-danger"><i
-																class="far fa-trash-alt"></i></button></td>
+													<td>
+														<div class="row">
+															<div class="col col-sm4">
+																<a class="btn btn-block btn-xs btn-secondary"><i
+																		class="far fa-edit"></i></a>
+															</div>
+															<div class="col col-sm4">
+																<button class="btn btn-block btn-xs btn-danger"><i
+																		class="far fa-trash-alt"></i></button>
+															</div>
+														</div>
+													</td>
 												</tr>
 												<tr>
 													<td>2</td>
@@ -108,8 +119,18 @@
 													<td>ccc</td>
 													<td>10</td>
 													<td>ddddd</td>
-													<td><button class="btn btn-xs btn-danger"><i
-																class="far fa-trash-alt"></i></button></td>
+													<td>
+														<div class="row">
+															<div class="col col-sm4">
+																<a class="btn btn-block btn-xs btn-secondary"><i
+																		class="far fa-edit"></i></a>
+															</div>
+															<div class="col col-sm4">
+																<button class="btn btn-block btn-xs btn-danger"><i
+																		class="far fa-trash-alt"></i></button>
+															</div>
+														</div>
+													</td>
 												</tr>
 											</tbody>
 										</table>
@@ -117,7 +138,7 @@
 								</div>
 							</div>
 							<div class="card-footer">
-								<a href="/cotizaciones/listar" class="btn btn-warning">Volver</a>
+								<a th:href="@{/cotizaciones/listar}" class="btn btn-warning">Volver</a>
 								<button type="submit" class="btn btn-info">Guardar</button>
 							</div>
 						</form>

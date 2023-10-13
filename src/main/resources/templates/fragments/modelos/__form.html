@@ -3,7 +3,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-12">
-					<h1>Crear comuna</h1>
+					<h1>Crear modelo</h1>
 				</div>
 				<!-- <div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -17,7 +17,7 @@
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-6 col-6">
+				<div class="col-lg-9 col-9">
 					<div class="card card-info">
 						<div class="card-header">
 							<h3 class="card-title">Formulario</h3>
@@ -25,14 +25,62 @@
 						<form class="form-horizontal">
 							<div class="card-body">
 								<div class="form-group row">
-									<label for="comuna" class="col-sm-2 col-form-label">Nombre</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="comuna" placeholder="Nombre comuna">
+									<label for="cant_deptos" class="col-sm-3 col-form-label">Cantidad de deptos</label>
+									<div class="col-sm-9">
+										<input type="number" class="form-control" id="cant_deptos"
+											placeholder="Cantidad de Deptos" min="0">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="cant_deptos" placeholder="D-345">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="metros" class="col-sm-3 col-form-label">Metros</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="metros"
+											placeholder="Metros cuadrados">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="cant_dorm" class="col-sm-3 col-form-label">Cantidad de
+										dormitorios</label>
+									<div class="col-sm-9">
+										<input type="number" class="form-control" id="cant_dorm"
+											placeholder="Cantidad de Dormitorios" min="0">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="cant_banos" class="col-sm-3 col-form-label">Cantidad de
+										baños</label>
+									<div class="col-sm-9">
+										<input type="number" class="form-control" id="cant_banos"
+											placeholder="Cantidad de baños" min="0">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="valor" class="col-sm-3 col-form-label">Valor (en U.F)</label>
+									<div class="col-sm-9">
+										<input type="number" class="form-control" id="valor" placeholder="Valor en U.F"
+											min="0">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="id_proyecto" class="col-sm-3 col-form-label">Proyecto</label>
+									<div class="col-sm-9">
+										<select class="form-control select2bs4" style="width: 100%;">
+											<option selected disabled>Seleccione</option>
+											<option th:value="${proyecto.id}" th:each="proyecto:${proyectos}"
+												th:text="${proyecto.nombre}"></option>
+										</select>
 									</div>
 								</div>
 							</div>
+
 							<div class="card-footer">
-								<a href="/modelos/listar" class="btn btn-warning">Volver</a>
+								<a th:href="@{/modelos/listar}" class="btn btn-warning">Volver</a>
 								<button type="submit" class="btn btn-info">Guardar</button>
 							</div>
 						</form>
