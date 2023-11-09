@@ -34,20 +34,21 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Trident</td>
-										<td>Internet
-											Explorer 4.0
+									
+									<tr th:each="comuna:${comunas}">
+										<td th:text="${comuna.id}"></td>
+										<td th:text="${comuna.nombre}">
 										</td>
-										<td>Win 95+</td>
+										<td th:if="${comuna.id_estado == 0}">Habilitada</td>
+										<td th:if="${comuna.id_estado == 1}">Deshabilitada</td>
 										<td>
 											<div class="row">
 												<div class="col col-sm4">
-													<a class="btn btn-block btn-xs btn-info"><i
+													<a class="btn btn-block btn-xs btn-info" th:href="@{'/comunas/ver/' + ${comuna.id}}"><i
 															class="far fa-eye"></i></a>
 												</div>
 												<div class="col col-sm4">
-													<a class="btn btn-block btn-xs btn-secondary"><i
+													<a class="btn btn-block btn-xs btn-secondary" th:href="@{'/comunas/editar/' + ${comuna.id}}"><i
 															class="far fa-edit"></i></a>
 												</div>
 												<div class="col col-sm4">

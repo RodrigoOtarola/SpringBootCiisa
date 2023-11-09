@@ -22,12 +22,18 @@
 						<div class="card-header">
 							<h3 class="card-title">Formulario</h3>
 						</div>
-						<form class="form-horizontal">
+						<form class="form-horizontal" th:action="@{/comunas/guardar}" th:object="${comuna}"
+							method="post">
+							<input th:field="*{id}" type="hidden" class="form-control">
+							<input th:field="*{id_estado}" type="hidden" class="form-control">
 							<div class="card-body">
 								<div class="form-group row">
 									<label for="comuna" class="col-sm-2 col-form-label">Nombre</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="comuna" placeholder="Nombre comuna">
+										<input th:field="*{nombre}" type="text" class="form-control" id="comuna"
+											placeholder="Nombre comuna" th:errorclass="'form-control is-invalid'">
+										<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+											th:errors="*{nombre}"></small>
 									</div>
 								</div>
 							</div>
