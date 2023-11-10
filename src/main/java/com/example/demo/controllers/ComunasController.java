@@ -69,23 +69,20 @@ public class ComunasController {
 		return "redirect:/comunas/listar";
 	}
 
-
 	@RequestMapping(value = "{opcion}/{id}")
 	public String detalleComuna(
 			// @PathVariable se pasan los parametros que utilizara la url
-			@PathVariable(value = "opcion") String opcion, 
-			@PathVariable(value = "id") Long id,
-			RedirectAttributes flash, 
-			Model model) {
+			@PathVariable(value = "opcion") String opcion, @PathVariable(value = "id") Long id,
+			RedirectAttributes flash, Model model) {
 
 		// Comuna comuna = null;
 
 		Comuna comuna = new Comuna();
 
 		if (id > 0) {
-			
+
 			comuna = comunaService.findOne(id);
-			
+
 			if (comuna == null) {
 				flash.addFlashAttribute("error", "El ID de comuna no existe en la BBDD!");
 				return "redirect:/comunas/listar";
@@ -106,38 +103,37 @@ public class ComunasController {
 
 		return "/fragments/comunas/editar";
 	}
-	
-	/*EDITAR*/
+
+	/* EDITAR */
 	@PutMapping("/update/{id}")
-	public String actualizarComuna(
-		@PathVariable Long id,
-		@ModelAttribute("comunaActualizada")
-		@Valid Comuna comunaActualizada,
-		BindingResult resultado){
-		
+	public String actualizarComuna(@PathVariable Long id,
+			@ModelAttribute("comunaActualizada") @Valid Comuna comunaActualizada, BindingResult resultado) {
+
 		if (resultado.hasErrors()) {
-			
-			return "redirect:/comunas/editar/" +id;
+
+			return "redirect:/comunas/editar/" + id;
 		}
-		
+
 		comunaActualizada = comunaService.comunaUpdate(id, comunaActualizada);
-		
-		//comunaService.comunaUpdate(comunaActualizada);
-		
+
+		// comunaService.comunaUpdate(comunaActualizada);
+
 		return "redirect:/comunas/listar";
-		
+
 	}
-	
-	/*Eliminar*/
-	/*@RequestMapping(value = "eliminar/{id}")
+
+	/** ELIMINAR*/
+	@RequestMapping(value = "eliminar/{id}")
 	public String eliminarComuna(
 			@PathVariable(value = "id") Long id,
-			Model model
-	) {
-		Comuna comuna = null;
-		if(id>0) {
-			comuna = comunaService
+			Model model, 
+			RedirectAttributes flash) {
+		
+		
+		if (id > 0) {	
+			comunaService.delete(id);
 		}
+		
 		return "redirect:/comunas/listar";
-	}*/
+	}
 }

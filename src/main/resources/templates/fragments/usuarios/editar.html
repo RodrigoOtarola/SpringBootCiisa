@@ -35,7 +35,6 @@
 				</div>-->
 					</div>
 			</section>
-
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
@@ -44,42 +43,143 @@
 								<div class="card-header">
 									<h3 class="card-title">Formulario</h3>
 								</div>
-
 								<div class="card-body">
 									<div th:if="${opcion.equals('ver')}">
 										<div class="form-group row">
-											<label for="comuna" class="col-sm-2 col-form-label">Nombre</label>
-											<div class="col-sm-10">
-												<input th:field="*{comuna.nombre}" type="text" class="form-control"
-													id="comuna" disabled>
+											<label for="rut" class="col-sm-2 col-form-label">RUT</label>
+											<div class="col-sm-4">
+												<input th:field="*{usuario.rut}" type="text" class="form-control"
+													id="rut" placeholder="RUT sin puntos ni guión" disabled>
 											</div>
 										</div>
-										<div class="card-footer">
-											<a th:href="@{/comunas/listar}" class="btn btn-warning">Volver</a>
+										<div class="form-group row">
+											<label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
+											<div class="col-sm-4">
+												<input th:field="*{usuario.nombres}" type="text" class="form-control"
+													id="nombres" placeholder="Nombre" disabled>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="ap_paterno" class="col-sm-2 col-form-label">A Paterno</label>
+											<div class="col-sm-4">
+												<input th:field="*{usuario.ap_paterno}" type="text" class="form-control"
+													id="ap_paterno" placeholder="Apellido Paterno" disabled>
+											</div>
 
-											<a th:href="@{'/comunas/editar/' + ${comuna.id}}"
-												class="btn btn-info">Editar</a>
+											<label for="ap_materno" class="col-sm-2 col-form-label">A Materno</label>
+											<div class="col-sm-4">
+												<input th:field="*{usuario.ap_materno}" type="text" class="form-control"
+													id="ap_materno" placeholder="Apellido Materno" disabled>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="email" class="col-sm-2 col-form-label">E-mail</label>
+											<div class="col-sm-4">
+												<input th:field="*{usuario.email}" type="email" class="form-control"
+													id="email" placeholder="Correo Electrónico" disabled>
+											</div>
+
+											<label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
+											<div class="col-sm-4">
+												<input th:field="*{usuario.direccion}" type="text" class="form-control"
+													id="direccion" placeholder="Domicilio particular" disabled>
+											</div>
 										</div>
 									</div>
+
 									<form th:if="${opcion.equals('editar')}" class="form-horizontal"
-										th:action="@{'/comunas/update/' + ${comuna.id}}" th:object="${comuna}" th:method="put" autocomplete="off">
-										<div class="form-group row">
-											<label for="comuna" class="col-sm-2 col-form-label">Nombre</label>
-											<div class="col-sm-10">
-												<input th:field="*{nombre}" type="text" class="form-control"
-													id="comuna">
-												<small class="form-text text-danger"
-													th:if="${#fields.hasErrors('nombre')}"
-													th:errors="*{nombre}"></small>
+										th:action="@{'/usuario/update/' + ${usuario.id}}" th:object="${usuario}"
+										th:method="put" autocomplete="off">
+
+										<div class="card-body">
+											<div class="form-group row">
+												<label for="rut" class="col-sm-2 col-form-label">RUT</label>
+												<div class="col-sm-4">
+													<input th:field="*{rut}" type="text" class="form-control" id="rut"
+														placeholder="RUT sin puntos ni guión">
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('rut')}" th:errors="*{rut}"></small>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
+												<div class="col-sm-4">
+													<input th:field="*{nombres}" type="text" class="form-control"
+														id="nombres" placeholder="Nombre">
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('nombres')}"
+														th:errors="*{nombres}"></small>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label for="ap_paterno" class="col-sm-2 col-form-label">A
+													Paterno</label>
+												<div class="col-sm-4">
+													<input th:field="*{ap_paterno}" type="text" class="form-control"
+														id="ap_paterno" placeholder="Apellido Paterno">
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('ap_paterno')}"
+														th:errors="*{ap_paterno}"></small>
+												</div>
+
+												<label for="ap_materno" class="col-sm-2 col-form-label">A
+													Materno</label>
+												<div class="col-sm-4">
+													<input th:field="*{ap_materno}" type="text" class="form-control"
+														id="ap_materno" placeholder="Apellido Materno">
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('ap_materno')}"
+														th:errors="*{ap_materno}"></small>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label for="email" class="col-sm-2 col-form-label">E-mail</label>
+												<div class="col-sm-4">
+													<input th:field="*{email}" type="email" class="form-control"
+														id="email" placeholder="Correo Electrónico">
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('email')}"
+														th:errors="*{email}"></small>
+												</div>
+
+												<label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
+												<div class="col-sm-4">
+													<input th:field="*{direccion}" type="text" class="form-control"
+														id="direccion" placeholder="Domicilio particular">
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('direccion')}"
+														th:errors="*{direccion}"></small>
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label for="roles" class="col-sm-2 col-form-label">Perfil</label>
+												<div class="col-sm-10">
+													<select class="form-control select2bs4" style="width: 100%;"
+														th:name="id_perfil">
+														<option selected disabled>Seleccione</option>
+														<option th:each="rol:${roles}" th:value="${rol.id}"
+															th:text="${rol.nombre}">
+														</option>
+													</select>
+													<small class="form-text text-danger"
+														th:if="${#fields.hasErrors('id_perfil')}"
+														th:errors="*{id_perfil}"></small>
+												</div>
 											</div>
 										</div>
-
-										<div class="card-footer">
-											<a th:href="@{/comunas/listar}" class="btn btn-warning">Volver</a>
-
-											<button type="submit" class="btn btn-info">Actualizar</button>
-										</div>
 									</form>
+								</div>
+								<div th:if="${opcion.equals('ver')}" class="card-footer">
+									<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
+
+									<a th:href="@{'/usuarios/editar/' + ${usuario.id}}" class="btn btn-info">Editar</a>
+								</div>
+
+								<div th:if="${opcion.equals('editar')}" class="card-footer">
+									<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
+
+									<button type="submit" class="btn btn-info">Actualizar</button>
 								</div>
 							</div>
 						</div>

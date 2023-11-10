@@ -93,16 +93,16 @@ public class UsuarioController {
 
 		Usuario usuario = new Usuario();
 
-		// Validaciones.
+		// Validaciones
 		if (id > 0) {
 			usuario = usuarioService.findOne(id);
 			if (usuario == null) {
 				flash.addFlashAttribute("error", "El ID de usuario no existe en la DDBB");
-				return "redirect;/usuarios/listar";
+				return "redirect:/usuarios/listar";
 			}
 		} else {
 			flash.addFlashAttribute("error", "El ID de usuario no puede ser cero");
-			return "redirect;/usuarios/listar";
+			return "redirect:/usuarios/listar";
 		}
 
 		model.addAttribute("opcion", opcion);
@@ -115,5 +115,20 @@ public class UsuarioController {
 		}
 
 		return "/fragments/usuarios/editar";
+	}
+	
+	/** ELIMINAR*/
+	@RequestMapping(value = "eliminar/{id}")
+	public String eliminarUsuario(
+			@PathVariable(value = "id") Long id,
+			Model model, 
+			RedirectAttributes flash) {
+		
+		
+		if (id > 0) {	
+			usuarioService.delete(id);
+		}
+		
+		return "redirect:/usuarios/listar";
 	}
 }

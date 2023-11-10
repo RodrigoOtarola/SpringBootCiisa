@@ -51,6 +51,7 @@ public class Usuario {
 	@NotEmpty
 	private String direccion;
 	
+
 	private Long id_perfil;
 	
 	@Column(name = "created_at")

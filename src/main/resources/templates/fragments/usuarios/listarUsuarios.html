@@ -37,22 +37,32 @@
 								<tbody>
 									<tr th:each="usuario:${usuarios}">
 										<td th:text="${usuario.rut} "></td>
-										<td th:text="${usuario.nombres}+ ' ' + ${usuario.ap_paterno} + ' '+ ${usuario.ap_materno}"></td>
+										<td
+											th:text="${usuario.nombres}+ ' ' + ${usuario.ap_paterno} + ' '+ ${usuario.ap_materno}">
+										</td>
 										<td th:text="${usuario.id_perfil}"></td>
-										<td th:text="${usuario.created_at}"></td>										
+										<td th:text="${usuario.created_at}"></td>
 										<td>
 											<div class="row">
 												<div class="col col-sm4">
-													<a class="btn btn-block btn-xs btn-info"><i
+													<a th:href="@{'/usuarios/ver/' + ${usuario.id}}"
+														class="btn btn-block btn-xs btn-info"><i
 															class="far fa-eye"></i></a>
 												</div>
 												<div class="col col-sm4">
-													<a class="btn btn-block btn-xs btn-secondary"><i
+													<a th:href="@{'/usuarios/editar/' + ${usuario.id}}"
+														class="btn btn-block btn-xs btn-secondary"><i
 															class="far fa-edit"></i></a>
 												</div>
 												<div class="col col-sm4">
-													<button class="btn btn-block btn-xs btn-danger"><i
-															class="far fa-trash-alt"></i></button>
+													<form method="post"
+														th:action="@{'/usuarios/eliminar/' + ${usuario.id}}">
+														<button type="submit" class="btn btn-block btn-xs btn-danger"
+															onclick="return confirm('¿Estas seguro que desea eliminar la factura?');"><i
+																class="far fa-trash-alt">
+															</i>
+														</button>
+													</form>
 												</div>
 											</div>
 										</td>
