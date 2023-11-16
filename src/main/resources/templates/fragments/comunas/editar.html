@@ -62,7 +62,8 @@
 										</div>
 									</div>
 									<form th:if="${opcion.equals('editar')}" class="form-horizontal"
-										th:action="@{'/comunas/update/' + ${comuna.id}}" th:object="${comuna}" th:method="put" autocomplete="off">
+										th:action="@{/comunas/guardar}" th:object="${comuna}" method="post" autocomplete="off">
+										<input th:field="*{id}" type="hidden" class="form-control">
 										<div class="form-group row">
 											<label for="comuna" class="col-sm-2 col-form-label">Nombre</label>
 											<div class="col-sm-10">

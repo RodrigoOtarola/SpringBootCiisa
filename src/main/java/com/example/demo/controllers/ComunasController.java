@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -69,26 +68,20 @@ public class ComunasController {
 		return "redirect:/comunas/listar";
 	}
 
-	@RequestMapping(value = "{opcion}/{id}")
-	public String detalleComuna(
-			// @PathVariable se pasan los parametros que utilizara la url
-			@PathVariable(value = "opcion") String opcion, @PathVariable(value = "id") Long id,
-			RedirectAttributes flash, Model model) {
+	@RequestMapping(value = "/{opcion}/{id}")
+	public String detallecomuna(@PathVariable(value = "opcion") String opcion, @PathVariable(value = "id") Long id,
+			Model model, RedirectAttributes flash) {
 
-		// Comuna comuna = null;
-
-		Comuna comuna = new Comuna();
+		Comuna comuna = null;
 
 		if (id > 0) {
-
 			comuna = comunaService.findOne(id);
-
 			if (comuna == null) {
-				flash.addFlashAttribute("error", "El ID de comuna no existe en la BBDD!");
+				flash.addFlashAttribute("error", "El ID del ingrediente no existe en la BBDD!");
 				return "redirect:/comunas/listar";
 			}
 		} else {
-			flash.addFlashAttribute("error", "El ID del la comuna no puede ser cero!");
+			flash.addFlashAttribute("error", "El ID del ingrediente no puede ser cero!");
 			return "redirect:/comunas/listar";
 		}
 
@@ -100,40 +93,18 @@ public class ComunasController {
 		} else {
 			model.addAttribute("subtitulo", "Ver Comuna");
 		}
-
+		// model.addAttribute("titulo", "Ingredientes");
 		return "/fragments/comunas/editar";
 	}
 
-	/* EDITAR */
-	@PutMapping("/update/{id}")
-	public String actualizarComuna(@PathVariable Long id,
-			@ModelAttribute("comunaActualizada") @Valid Comuna comunaActualizada, BindingResult resultado) {
-
-		if (resultado.hasErrors()) {
-
-			return "redirect:/comunas/editar/" + id;
-		}
-
-		comunaActualizada = comunaService.comunaUpdate(id, comunaActualizada);
-
-		// comunaService.comunaUpdate(comunaActualizada);
-
-		return "redirect:/comunas/listar";
-
-	}
-
-	/** ELIMINAR*/
+	/** ELIMINAR */
 	@RequestMapping(value = "eliminar/{id}")
-	public String eliminarComuna(
-			@PathVariable(value = "id") Long id,
-			Model model, 
-			RedirectAttributes flash) {
-		
-		
-		if (id > 0) {	
+	public String eliminarComuna(@PathVariable(value = "id") Long id, Model model, RedirectAttributes flash) {
+
+		if (id > 0) {
 			comunaService.delete(id);
 		}
-		
+
 		return "redirect:/comunas/listar";
 	}
 }
