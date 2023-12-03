@@ -85,11 +85,19 @@
 													id="direccion" placeholder="Domicilio particular" disabled>
 											</div>
 										</div>
+										<div class="card-footer">
+											<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
+
+											<a th:href="@{'/usuarios/editar/' + ${usuario.id}}"
+												class="btn btn-info">Editar</a>
+										</div>
 									</div>
 
 									<form th:if="${opcion.equals('editar')}" class="form-horizontal"
-										th:action="@{'/usuario/update/' + ${usuario.id}}" th:object="${usuario}"
-										th:method="put" autocomplete="off">
+										th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post"
+										autocomplete="off">
+
+										<input th:field="*{id}" type="hidden" class="form-control">
 
 										<div class="card-body">
 											<div class="form-group row">
@@ -156,7 +164,7 @@
 												<label for="roles" class="col-sm-2 col-form-label">Perfil</label>
 												<div class="col-sm-10">
 													<select class="form-control select2bs4" style="width: 100%;"
-														th:name="id_perfil">
+														th:name="rol">
 														<option selected disabled>Seleccione</option>
 														<option th:each="rol:${roles}" th:value="${rol.id}"
 															th:text="${rol.nombre}">
@@ -168,18 +176,12 @@
 												</div>
 											</div>
 										</div>
+										<div class="card-footer">
+											<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
+
+											<button type="submit" class="btn btn-info">Actualizar</button>
+										</div>
 									</form>
-								</div>
-								<div th:if="${opcion.equals('ver')}" class="card-footer">
-									<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
-
-									<a th:href="@{'/usuarios/editar/' + ${usuario.id}}" class="btn btn-info">Editar</a>
-								</div>
-
-								<div th:if="${opcion.equals('editar')}" class="card-footer">
-									<a th:href="@{/usuarios/listar}" class="btn btn-warning">Volver</a>
-
-									<button type="submit" class="btn btn-info">Actualizar</button>
 								</div>
 							</div>
 						</div>

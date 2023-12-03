@@ -21,7 +21,7 @@
 						<div class="card-header">
 							<h3 class="card-title">Formulario</h3>
 						</div>
-						<form class="form-horizontal" method="post" th:action="@{/usuarios/grabarUsuario}"
+						<form class="form-horizontal" method="post" th:action="@{/usuarios/guardar}"
 							autocomplete="off" th:object="${usuario}">
 							<input th:field="*{id}" type="hidden" class="form-control">
 							<input th:field="*{created_at}" type="hidden" class="form-control">
@@ -82,7 +82,7 @@
 								<div class="form-group row">
 									<label for="roles" class="col-sm-2 col-form-label">Perfil</label>
 									<div class="col-sm-10">
-										<select class="form-control select2bs4" style="width: 100%;" th:name="id_perfil">
+										<select class="form-control select2bs4" style="width: 100%;" th:name="rol">
 											<option selected disabled>Seleccione</option>
 											<option th:each="rol:${roles}" th:value="${rol.id}" th:text="${rol.nombre}">
 											</option>

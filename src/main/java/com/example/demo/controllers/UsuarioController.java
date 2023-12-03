@@ -69,7 +69,7 @@ public class UsuarioController {
 
 	/** INSERTAR USUARIO */
 
-	@PostMapping("/grabarUsuario")
+	@PostMapping("/guardar")
 	public String grabarUsuario(@Valid Usuario usuario, BindingResult resultado, Model model) {
 
 		if (resultado.hasErrors()) {
@@ -87,11 +87,15 @@ public class UsuarioController {
 
 	/** VER Y EDITAR */
 
-	@RequestMapping(value = "{opcion}/{id}")
+	@RequestMapping(value = "/{opcion}/{id}")
 	public String detalleUsuario(@PathVariable(value = "opcion") String opcion, @PathVariable(value = "id") Long id,
 			RedirectAttributes flash, Model model) {
 
 		Usuario usuario = new Usuario();
+		
+		List<Rol> rol = new ArrayList<Rol>();
+		rol = rolService.findAll();
+
 
 		// Validaciones
 		if (id > 0) {
@@ -107,6 +111,7 @@ public class UsuarioController {
 
 		model.addAttribute("opcion", opcion);
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("roles", rol);
 
 		if (opcion.equals("editar")) {
 			model.addAttribute("subtitulo", "Editar Usuario");

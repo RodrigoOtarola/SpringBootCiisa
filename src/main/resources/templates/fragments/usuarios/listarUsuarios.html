@@ -40,7 +40,7 @@
 										<td
 											th:text="${usuario.nombres}+ ' ' + ${usuario.ap_paterno} + ' '+ ${usuario.ap_materno}">
 										</td>
-										<td th:text="${usuario.id_perfil}"></td>
+										<td th:text="${usuario.rol.nombre}"></td>
 										<td th:text="${usuario.created_at}"></td>
 										<td>
 											<div class="row">
