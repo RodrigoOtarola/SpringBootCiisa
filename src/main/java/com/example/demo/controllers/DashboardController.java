@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DashboardController {
 
 	/*Retorna la vista unica del dashboard*/
-	@GetMapping("/")
+	@GetMapping("/dashboard")
 	public String dashboard(Model model) {
 		
 		model.addAttribute("titulo","Dashboard");

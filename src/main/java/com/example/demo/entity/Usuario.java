@@ -53,7 +53,8 @@ public class Usuario {
 	@NotEmpty
 	private String direccion;
 	
-
+	@NotEmpty
+	private String password;
 	
 	@Column(name = "created_at", updatable = false)
 	@Temporal(TemporalType.DATE)
@@ -167,9 +168,15 @@ public class Usuario {
 		this.direccion = direccion;
 	}
 
+		public String getPassword() {
+		return password;
+	}
 
 
-	
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 
 
