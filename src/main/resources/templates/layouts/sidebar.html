@@ -5,8 +5,8 @@
 			<div class="image">
 				<img th:src="@{/img/linux.png}" class="img-circle elevation-2" alt="User Image">
 			</div>
-			<div class="info">
-				<a href="#" class="d-block">Rodrigo Otárola</a>
+			<div sec:authorize="isAuthenticated()" class="info">
+				<p sec:authentication="name" class="d-block text-white"></p>
 			</div>
 		</div>
 
@@ -15,7 +15,7 @@
 
 				<!--Menú Dashboard-->
 				<li class="nav-item">
-					<a th:href="@{/}" th:class="'nav-link '+${titulo == 'Dashboard' ? 'active' : ''}" >
+					<a th:href="@{/}" th:class="'nav-link '+${titulo == 'Dashboard' ? 'active' : ''}">
 						<i class="nav-icon fas fa-tachometer-alt"></i>
 						<p>
 							Dashboard
@@ -34,13 +34,15 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/cotizaciones/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Cotizaciones'  ? 'active' : ''}">
+							<a th:href="@{/cotizaciones/listar}"
+								th:class="'nav-link ' +${subtitulo  == 'Listar Cotizaciones'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar cotizaciones</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a th:href="@{/cotizaciones/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Cotizaciones'  ? 'active' : ''}">
+							<a th:href="@{/cotizaciones/crear}"
+								th:class="'nav-link ' +${subtitulo  == 'Crear Cotizaciones'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Cotización</p>
 							</a>
@@ -59,13 +61,15 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/proyectos/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Proyectos'  ? 'active' : ''}">
+							<a th:href="@{/proyectos/listar}"
+								th:class="'nav-link ' +${subtitulo  == 'Listar Proyectos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar Proyectos</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a th:href="@{/proyectos/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Proyectos'  ? 'active' : ''}">
+							<a th:href="@{/proyectos/crear}"
+								th:class="'nav-link ' +${subtitulo  == 'Crear Proyectos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Proyecto</p>
 							</a>
@@ -85,13 +89,15 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/modelos/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Modelos'  ? 'active' : ''}">
+							<a th:href="@{/modelos/listar}"
+								th:class="'nav-link ' +${subtitulo  == 'Listar Modelos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar Modelos</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a th:href="@{/modelos/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Modelos'  ? 'active' : ''}">
+							<a th:href="@{/modelos/crear}"
+								th:class="'nav-link ' +${subtitulo  == 'Crear Modelos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Modelo</p>
 							</a>
@@ -110,7 +116,8 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/comunas/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Comunas'  ? 'active' : ''}">
+							<a th:href="@{/comunas/listar}"
+								th:class="'nav-link ' +${subtitulo  == 'Listar Comunas'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar comunas</p>
 							</a>
@@ -119,7 +126,8 @@
 
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/comunas/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Comunas'  ? 'active' : ''}">
+							<a th:href="@{/comunas/crear}"
+								th:class="'nav-link ' +${subtitulo  == 'Crear Comunas'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear comuna</p>
 							</a>
@@ -128,7 +136,7 @@
 				</li>
 
 				<!--Menú desplegable -->
-				<li th:class="'nav-item ' +${titulo  == 'Usuarios'  ? 'menu-open' : ''}">
+				<li sec:authorize="hasRole('ADMIN')" th:class="'nav-item ' +${titulo  == 'Usuarios'  ? 'menu-open' : ''}">
 					<a href="#" th:class="'nav-link ' +${titulo  == 'Usuarios'  ? 'active' : ''}">
 						<i class="nav-icon fas fa-users"></i>
 						<p>
@@ -138,18 +146,32 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a th:href="@{/usuarios/listar}" th:class="'nav-link ' +${subtitulo  == 'Listar Usuarios'  ? 'active' : ''}">
+							<a th:href="@{/usuarios/listar}"
+								th:class="'nav-link ' +${subtitulo  == 'Listar Usuarios'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Listar Usuarios</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a th:href="@{/usuarios/crear}" th:class="'nav-link ' +${subtitulo  == 'Crear Usuarios'  ? 'active' : ''}">
+							<a th:href="@{/usuarios/crear}"
+								th:class="'nav-link ' +${subtitulo  == 'Crear Usuarios'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Crear Usuarios</p>
 							</a>
 						</li>
 					</ul>
+				</li>
+
+				<!--Cierre de sesion-->
+				<li class="nav-item">
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="nav-link" onclick="document.getElementById('logoutForm').submit();"
+							type="submit">
+							<i class="nav-icon fas fa-sign-out-alt"></i>
+							<p>Cerrar sesión</p>
+						</button>
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+					</form>
 				</li>
 			</ul>
 		</nav>
