@@ -30,7 +30,7 @@
 										<th>ID</th>
 										<th>Proyecto</th>
 										<th>Comuna</th>
-										<th>Modificar</th>
+										<th sec:authorize="hasAnyRole('Ejecutivo', 'Administrador')">Modificar</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -40,7 +40,7 @@
 											Explorer 4.0
 										</td>
 										<td>Win 95+</td>
-										<td>
+										<td sec:authorize="hasAnyRole('Ejecutivo', 'Administrador')">
 											<div class="row">
 												<div class="col col-sm4">
 													<a class="btn btn-block btn-xs btn-info"><i

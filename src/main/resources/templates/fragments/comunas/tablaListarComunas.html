@@ -55,7 +55,7 @@
 												</div>
 												<div class="col col-sm4">
 													<form method="post"
-														th:action="@{'/comunas/eliminar/' + ${comuna.id}}">
+														th:action="@{/comunas/eliminar/{id}(id=${comuna.id})}">
 														<button type="submit" class="btn btn-block btn-xs btn-danger"
 															onclick="return confirm('¿Estas seguro que desea eliminar la comuna?');"><i
 																class="far fa-trash-alt">

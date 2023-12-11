@@ -33,11 +33,11 @@ public class ModeloController {
 
 		List<Proyecto> proyecto = new ArrayList<>();
 		
-		proyecto.add(new Proyecto(1, "Parque Cerrillos", "Cerrillos"));
-		proyecto.add(new Proyecto(2, "Parque Pajaritos ", "Maipú"));
-		proyecto.add(new Proyecto(3, "Laguna del sol", "Padre Hurtado"));
+		//proyecto.add(new Proyecto(1, "Parque Cerrillos", "Cerrillos"));
+		//proyecto.add(new Proyecto(2, "Parque Pajaritos ", "Maipú"));
+		//proyecto.add(new Proyecto(3, "Laguna del sol", "Padre Hurtado"));
 		
-		model.addAttribute("proyectos", proyecto);
+		//model.addAttribute("proyectos", proyecto);
 
 		return "/fragments/modelos/crear";
 	}

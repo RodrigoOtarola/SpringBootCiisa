@@ -34,25 +34,29 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Trident</td>
-										<td>Internet
-											Explorer 4.0
-										</td>
-										<td>Win 95+</td>
+									<tr th:each="proyecto:${proyectos}">
+										<td th:text="${proyecto.id}"></td>
+										<td th:text="${proyecto.nombre}"></td>
+										<td th:text="${proyecto.comuna.nombre}"></td>
 										<td sec:authorize="hasAnyRole('Ejecutivo', 'Administrador')">
 											<div class="row">
 												<div class="col col-sm4">
-													<a class="btn btn-block btn-xs btn-info"><i
+													<a th:href="@{'/proyectos/ver/' + ${proyecto.id}}" class="btn btn-block btn-xs btn-info"><i
 															class="far fa-eye"></i></a>
 												</div>
 												<div class="col col-sm4">
-													<a class="btn btn-block btn-xs btn-secondary"><i
+													<a th:href="@{'/proyectos/editar/' + ${proyecto.id}}" class="btn btn-block btn-xs btn-secondary"><i
 															class="far fa-edit"></i></a>
 												</div>
 												<div class="col col-sm4">
-													<button class="btn btn-block btn-xs btn-danger"><i
-															class="far fa-trash-alt"></i></button>
+													<form method="post"
+														th:action="@{/proyectos/eliminar/{id}(id=${proyecto.id})}">
+														<button type="submit" class="btn btn-block btn-xs btn-danger"
+															onclick="return confirm('¿Estas seguro que desea eliminar el proyecto?');"><i
+																class="far fa-trash-alt">
+															</i>
+														</button>
+													</form>
 												</div>
 											</div>
 										</td>

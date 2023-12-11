@@ -10,8 +10,8 @@
 	<div th:replace="./layouts/styles :: style"></div>
 
 	<!-- Select2 -->
-	<link rel="stylesheet" th:href="@{/plugins/select2/css/select2.min.css}">
-	<link rel="stylesheet" th:href="@{/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
+	<link rel="stylesheet" th:href="@{/admin/plugins/select2/css/select2.min.css}">
+	<link rel="stylesheet" th:href="@{/admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css}">
 
 </head>
 
@@ -27,6 +27,7 @@
 		<!-- importamos el formulario de creación -->
 		<div th:replace="./fragments/proyectos/__form :: crearProyecto">
 		</div>
+			
 
 		<!-- footer-->
 		<footer th:replace="./layouts/footer :: footer"></footer>
@@ -42,7 +43,7 @@
 	<div th:replace="./layouts/scripts :: scripts"></div>
 
 	<!-- Importamos Select2-->
-	<script th:src="@{/plugins/select2/js/select2.full.min.js}"></script>
+	<script th:src="@{/admin/plugins/select2/js/select2.full.min.js}"></script>
 
 	<script>
 		$(function () {

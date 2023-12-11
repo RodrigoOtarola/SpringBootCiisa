@@ -39,9 +39,7 @@ public class SpringSecurityConfig {
 			//Obtenemos el nombre del rol
 			String[] roles = { usuario.getRol().getNombre() };
 			manager.createUser(
-					User.withUsername(usuario.getEmail()
-							.concat(usuario.getNombres()+ ' ' + usuario.getAp_paterno()+' ' + usuario.getAp_materno()))
-
+					User.withUsername(usuario.getEmail())
 					.password(usuario.getPassword())
 					.roles(roles)
 					.build()
@@ -78,10 +76,19 @@ public class SpringSecurityConfig {
 								//Reglas de comunas
 								.requestMatchers(new AntPathRequestMatcher("/comunas/crear")).hasAnyRole("Administrador", "Ejecutivo")
 								.requestMatchers(new AntPathRequestMatcher("/comunas/editar/*")).hasAnyRole("Administrador", "Ejecutivo")
+								.requestMatchers(new AntPathRequestMatcher("/comunas/eliminar/*")).hasAnyRole("Administrador", "Ejecutivo")
 								
 								//Reglas de proyecto
 								.requestMatchers(new AntPathRequestMatcher("/proyectos/crear")).hasAnyRole("Administrador", "Ejecutivo")
 								.requestMatchers(new AntPathRequestMatcher("/proyectos/editar/**")).hasAnyRole("Administrador", "Ejecutivo")
+								.requestMatchers(new AntPathRequestMatcher("/proyectos/eliminar/**")).hasAnyRole("Administrador", "Ejecutivo")
+								
+								//Reglas de modelo
+								.requestMatchers(new AntPathRequestMatcher("/modelos/crear")).hasAnyRole("Administrador", "Ejecutivo")
+								.requestMatchers(new AntPathRequestMatcher("/modelos/editar/**")).hasAnyRole("Administrador", "Ejecutivo")
+								.requestMatchers(new AntPathRequestMatcher("/modelos/eliminar/**")).hasAnyRole("Administrador", "Ejecutivo")
+								
+							
 								
 								
 								.anyRequest().authenticated())

@@ -95,7 +95,7 @@
 								<p>Listar Modelos</p>
 							</a>
 						</li>
-						<li class="nav-item">
+						<li sec:authorize="hasAnyRole('Ejecutivo', 'Administrador')" class="nav-item">
 							<a th:href="@{/modelos/crear}"
 								th:class="'nav-link ' +${subtitulo  == 'Crear Modelos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>

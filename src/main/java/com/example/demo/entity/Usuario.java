@@ -59,6 +59,11 @@ public class Usuario {
 	@NotEmpty
 	private String password;
 	
+	/** Relaciones*/
+	@ManyToOne
+	@JoinColumn(name="id_perfil",unique = false)
+	private Rol rol;
+	
 	@Column(name = "created_at", updatable = false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -70,10 +75,7 @@ public class Usuario {
 		created_at = new Date(Calendar.getInstance().getTime().getTime());
 	}
 	
-	/** Relaciones*/
-	@ManyToOne
-	@JoinColumn(name="id_perfil",unique = false)
-	private Rol rol;
+
 
 	
 

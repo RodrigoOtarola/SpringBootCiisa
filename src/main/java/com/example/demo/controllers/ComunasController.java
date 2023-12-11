@@ -77,11 +77,11 @@ public class ComunasController {
 		if (id > 0) {
 			comuna = comunaService.findOne(id);
 			if (comuna == null) {
-				flash.addFlashAttribute("error", "El ID del ingrediente no existe en la BBDD!");
+				flash.addFlashAttribute("error", "El ID de comuna no existe en la BBDD!");
 				return "redirect:/comunas/listar";
 			}
 		} else {
-			flash.addFlashAttribute("error", "El ID del ingrediente no puede ser cero!");
+			flash.addFlashAttribute("error", "El ID de comuna no puede ser cero!");
 			return "redirect:/comunas/listar";
 		}
 

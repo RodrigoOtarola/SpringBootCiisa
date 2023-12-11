@@ -1,55 +1,63 @@
+
 <div th:fragment="crearProyecto" class="content-wrapper">
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-12">
-					<h1>Crear Proyecto</h1>
-				</div>
-				<!-- <div class="col-sm-6">
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-12">
+							<h1>Crear Proyecto</h1>
+						</div>
+						<!-- <div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item active">Buttons</li>
 					</ol>
 				</div>-->
-			</div>
-	</section>
+					</div>
+			</section>
 
-	<section class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-6 col-6">
-					<div class="card card-info">
-						<div class="card-header">
-							<h3 class="card-title">Formulario</h3>
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-6 col-6">
+							<div class="card card-info">
+								<div class="card-header">
+									<h3 class="card-title">Formulario</h3>
+								</div>
+								<form class="form-horizontal" method="post" th:action="@{/proyectos/guardar}"
+									autocomplete="off" th:object="${proyecto}">
+									<input th:field="*{id}" type="hidden" class="form-control">
+									<div class="card-body">
+										<div class="form-group row">
+											<label for="proyecto" class="col-sm-2 col-form-label">Nombre</label>
+											<div class="col-sm-10">
+												<input th:field="*{nombre}" type="text" class="form-control"
+													id="proyecto" placeholder="Nombre proyecto">
+												<small class="form-text text-danger"
+													th:if="${#fields.hasErrors('nombre')}"
+													th:errors="*{nombre}"></small>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-sm-2 col-form-label">Comuna</label>
+											<div class="col-sm-10">
+												<select class="form-control select2bs4" style="width: 100%;"
+													th:name="comuna">
+													<option selected disabled>Seleccione</option>
+													<option th:each="comuna:${comunas}" th:value="${comuna.id}"
+														th:text="${comuna.nombre}"></option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="card-footer">
+										<a th:href="@{/proyectos/listar}" class="btn btn-warning">Volver</a>
+										<button type="submit" class="btn btn-info">Guardar</button>
+									</div>
+								</form>
+							</div>
 						</div>
-						<form class="form-horizontal">
-							<div class="card-body">
-								<div class="form-group row">
-									<label for="comuna" class="col-sm-2 col-form-label">Nombre</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="comuna" placeholder="Nombre proyecto">
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="col-sm-2 col-form-label">Comuna</label>
-									<div class="col-sm-10">
-										<select class="form-control select2bs4" style="width: 100%;">
-											<option selected disabled>Seleccione</option>
-											<option th:each="comuna:${comunas}" th:value="${comuna.id}" th:text="${comuna.nombre}"></option>
-	
-										</select>
-									</div>
-								</div>
-							</div>
-
-							<div class="card-footer">
-								<a th:href="@{/proyectos/listar}" class="btn btn-warning">Volver</a>
-								<button type="submit" class="btn btn-info">Guardar</button>
-							</div>
-						</form>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
-	</section>
-</div>
