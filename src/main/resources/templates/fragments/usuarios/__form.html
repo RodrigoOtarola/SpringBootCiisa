@@ -21,8 +21,8 @@
 						<div class="card-header">
 							<h3 class="card-title">Formulario</h3>
 						</div>
-						<form class="form-horizontal" method="post" th:action="@{/usuarios/guardar}"
-							autocomplete="off" th:object="${usuario}">
+						<form class="form-horizontal" method="post" th:action="@{/usuarios/guardar}" autocomplete="off"
+							th:object="${usuario}">
 							<input th:field="*{id}" type="hidden" class="form-control">
 							<input th:field="*{created_at}" type="hidden" class="form-control">
 							<div class="card-body">
@@ -76,6 +76,16 @@
 											placeholder="Domicilio particular">
 										<small class="form-text text-danger" th:if="${#fields.hasErrors('direccion')}"
 											th:errors="*{direccion}"></small>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="password" class="col-sm-2 col-form-label">Password</label>
+									<div class="col-sm-4">
+										<input th:field="*{password}" type="password" class="form-control" id="password"
+											placeholder="password">
+										<small class="form-text text-danger" th:if="${#fields.hasErrors('password')}"
+											th:errors="*{password}"></small>
 									</div>
 								</div>
 

@@ -67,7 +67,7 @@
 								<p>Listar Proyectos</p>
 							</a>
 						</li>
-						<li class="nav-item">
+						<li sec:authorize="hasAnyRole('Ejecutivo', 'Administrador')" class="nav-item">
 							<a th:href="@{/proyectos/crear}"
 								th:class="'nav-link ' +${subtitulo  == 'Crear Proyectos'  ? 'active' : ''}">
 								<i class="far fa-circle nav-icon"></i>
@@ -124,7 +124,7 @@
 						</li>
 					</ul>
 
-					<ul class="nav nav-treeview">
+					<ul sec:authorize="hasAnyRole('Ejecutivo', 'Administrador')" class="nav nav-treeview">
 						<li class="nav-item">
 							<a th:href="@{/comunas/crear}"
 								th:class="'nav-link ' +${subtitulo  == 'Crear Comunas'  ? 'active' : ''}">
@@ -136,7 +136,7 @@
 				</li>
 
 				<!--Menú desplegable -->
-				<li sec:authorize="hasRole('ADMIN')" th:class="'nav-item ' +${titulo  == 'Usuarios'  ? 'menu-open' : ''}">
+				<li sec:authorize="hasRole('Administrador')" th:class="'nav-item ' +${titulo  == 'Usuarios'  ? 'menu-open' : ''}">
 					<a href="#" th:class="'nav-link ' +${titulo  == 'Usuarios'  ? 'active' : ''}">
 						<i class="nav-icon fas fa-users"></i>
 						<p>

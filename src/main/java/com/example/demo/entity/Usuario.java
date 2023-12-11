@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
@@ -48,6 +50,7 @@ public class Usuario {
 	
 	@NotEmpty
 	@Email
+	@Column(unique = true)
 	private String email;
 	
 	@NotEmpty
@@ -68,8 +71,8 @@ public class Usuario {
 	}
 	
 	/** Relaciones*/
-	@OneToOne
-	@JoinColumn(name="id_perfil", unique = true)
+	@ManyToOne
+	@JoinColumn(name="id_perfil",unique = false)
 	private Rol rol;
 
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.entity.Rol;
@@ -29,6 +32,9 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("/listar")
 	public String listarUsuarios(Model model) {
@@ -69,20 +75,46 @@ public class UsuarioController {
 
 	/** INSERTAR USUARIO */
 
+	//@Valid Usuario usuario
 	@PostMapping("/guardar")
-	public String grabarUsuario(@Valid Usuario usuario, BindingResult resultado, Model model) {
+	public String grabarUsuario(
+			@RequestParam("rut") String rut, 
+			@RequestParam("nombres") String nombres, 
+			@RequestParam("ap_paterno") String ap_paterno,
+			@RequestParam("ap_materno") String ap_materno, 
+			@RequestParam("email") String email,
+			@RequestParam("direccion") String direccion, 
+			@RequestParam("password") String password, 
+			@RequestParam("rol") Rol id_perfil,
+			Model model,
+			SessionStatus status) {
 
-		if (resultado.hasErrors()) {
 
-			model.addAttribute("titulo", "Usuarios");
-			model.addAttribute("subtitulo", "Crear Usuarios");
-			return "/fragments/usuarios/crear";
-		}
+		Usuario usuario = new Usuario();
+		usuario.setRut(rut);
+		usuario.setNombres(nombres);
+		usuario.setAp_paterno(ap_paterno);
+		usuario.setAp_materno(ap_materno);		
+		usuario.setEmail(email);
+		System.out.println("Clave ingresada: " + password);
+		usuario.setPassword(passwordEncoder.encode(password));
+		System.out.println("Clave encriptada: " + passwordEncoder.encode(password));
+		usuario.setDireccion(direccion);
+		usuario.setRol(id_perfil);
+		
+		//Grabamos en la base de datos
+		usuarioService.save(usuario);
+		
+		/*String mensajeFlash = (usuario.getId() != null) ? "Usuario editado con éxito!" : "Usuario creado con éxito!";
+		status.setComplete();*/
+		
+		//flash.addFlashAttribute("success", mensajeFlash);
+		return "redirect:/usuarios/listar";
 
 		// Grabar en DDBB
-		usuarioService.save(usuario);
+		//usuarioService.save(usuario);
 
-		return "redirect:/usuarios/listar";
+		//return "redirect:/usuarios/listar";
 	}
 
 	/** VER Y EDITAR */
@@ -92,10 +124,9 @@ public class UsuarioController {
 			RedirectAttributes flash, Model model) {
 
 		Usuario usuario = new Usuario();
-		
+
 		List<Rol> rol = new ArrayList<Rol>();
 		rol = rolService.findAll();
-
 
 		// Validaciones
 		if (id > 0) {
@@ -121,19 +152,15 @@ public class UsuarioController {
 
 		return "/fragments/usuarios/editar";
 	}
-	
-	/** ELIMINAR*/
+
+	/** ELIMINAR */
 	@RequestMapping(value = "eliminar/{id}")
-	public String eliminarUsuario(
-			@PathVariable(value = "id") Long id,
-			Model model, 
-			RedirectAttributes flash) {
-		
-		
-		if (id > 0) {	
+	public String eliminarUsuario(@PathVariable(value = "id") Long id, Model model, RedirectAttributes flash) {
+
+		if (id > 0) {
 			usuarioService.delete(id);
 		}
-		
+
 		return "redirect:/usuarios/listar";
 	}
 }
