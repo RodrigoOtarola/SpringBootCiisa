@@ -82,8 +82,6 @@ public class ProyectoController {
 		List<Comuna> comunas = new ArrayList<Comuna>();
 		comunas = comunaService.findAll();
 		
-		//Proyecto proyecto = null;
-		
 		if (id > 0) {
 			proyecto = proyectoService.findOne(id);
 			if (proyecto == null) {

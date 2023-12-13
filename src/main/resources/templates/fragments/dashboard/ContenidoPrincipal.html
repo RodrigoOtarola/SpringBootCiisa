@@ -5,12 +5,6 @@
 				<div class="col-sm-12">
 					<h1 class="text-center">Dashboard</h1>
 				</div>
-				<!-- <div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Buttons</li>
-					</ol>
-				</div>-->
 			</div>
 	</section>
 
@@ -20,46 +14,49 @@
 				<div class="col-lg-3 col-6">
 					<div class="small-box bg-info">
 						<div class="inner">
-							<h3>150</h3>
-							<p>New Orders</p>
+							<h3 th:text="${proyectos.size()}"></h3>
+							<p>Cantidad de proyectos</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-bag"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+						<a th:href="@{/proyectos/listar}" class="small-box-footer">Más info <i
+								class="fas fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-6">
 					<div class="small-box bg-success">
 						<div class="inner">
-							<h3>53<sup style="font-size: 20px">%</sup></h3>
+							<h3 th:text="${comunas.size()}"></h3>
 
-							<p>Bounce Rate</p>
+							<p>Cantidad de comunas</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-stats-bars"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+						<a th:href="@{/comunas/listar}" class="small-box-footer">Más info <i
+								class="fas fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-6">
 					<div class="small-box bg-warning">
 						<div class="inner">
-							<h3>44</h3>
-							<p>User Registrations</p>
+							<h3 th:text="${usuarios.size()}"></h3>
+							<p>Usuarios Registrados</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-person-add"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+						<a th:href="@{/usuarios/listar}" class="small-box-footer">Más info <i
+								class="fas fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-6">
 					<div class="small-box bg-danger">
 						<div class="inner">
-							<h3>65</h3>
+							<h3 th:text="${roles.size()}"></h3>
 
-							<p>Unique Visitors</p>
+							<p>Perfiles de usuario</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-pie-graph"></i>
@@ -72,7 +69,7 @@
 			<!-- Graficos -->
 			<div class="row">
 
-				<!-- Grafico Lineal -->
+				<!-- Grafico Lineal-->
 				<div th:replace="/fragments/dashboard/graficoLineal :: graficoLineal"></div>
 
 				<!-- Grafico de Torta-->

@@ -19,12 +19,7 @@ public class Rol {
 	@NotEmpty
 	private String nombre;
 	
-	/** Relaciones*/
-	
-	@OneToOne(mappedBy = "rol")
-	private Usuario usuario;
 
-	
 
 	public Long getId() {
 		return id;
@@ -48,17 +43,6 @@ public class Rol {
 		this.nombre = nombre;
 	}
 
-
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 
 

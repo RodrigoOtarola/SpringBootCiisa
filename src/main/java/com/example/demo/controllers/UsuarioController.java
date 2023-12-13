@@ -78,6 +78,7 @@ public class UsuarioController {
 	//@Valid Usuario usuario
 	@PostMapping("/guardar")
 	public String grabarUsuario(
+			@Valid Usuario usuario,
 			@RequestParam("rut") String rut, 
 			@RequestParam("nombres") String nombres, 
 			@RequestParam("ap_paterno") String ap_paterno,
@@ -90,7 +91,7 @@ public class UsuarioController {
 			SessionStatus status) {
 
 
-		Usuario usuario = new Usuario();
+		//Usuario usuario = new Usuario();
 		usuario.setRut(rut);
 		usuario.setNombres(nombres);
 		usuario.setAp_paterno(ap_paterno);
@@ -121,9 +122,11 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/{opcion}/{id}")
 	public String detalleUsuario(@PathVariable(value = "opcion") String opcion, @PathVariable(value = "id") Long id,
-			RedirectAttributes flash, Model model) {
+			Model model, RedirectAttributes flash) {
 
+		
 		Usuario usuario = new Usuario();
+		System.out.println(usuario);
 
 		List<Rol> rol = new ArrayList<Rol>();
 		rol = rolService.findAll();

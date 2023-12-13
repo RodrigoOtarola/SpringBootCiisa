@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -87,12 +85,9 @@ public class SpringSecurityConfig {
 								.requestMatchers(new AntPathRequestMatcher("/modelos/crear")).hasAnyRole("Administrador", "Ejecutivo")
 								.requestMatchers(new AntPathRequestMatcher("/modelos/editar/**")).hasAnyRole("Administrador", "Ejecutivo")
 								.requestMatchers(new AntPathRequestMatcher("/modelos/eliminar/**")).hasAnyRole("Administrador", "Ejecutivo")
-								
-							
-								
-								
+									
 								.anyRequest().authenticated())
-				.formLogin(login -> login.loginPage("/login").permitAll())
+				.formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/home", true).permitAll())
 				// .formLogin(login -> login.permitAll())
 				.logout(logout -> logout.permitAll())
 				.exceptionHandling(exception -> exception.accessDeniedPage("/error_403"));
